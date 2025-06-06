@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Liste des compagnies</h2>
+<a href="{% url 'compagnie_ajout' %}" class="btn btn-primary mb-3">Ajouter une compagnie</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Pays</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for compagnie in compagnie %}
+        <tr>
+            <td>{{ compagnie.id }}</td>
+            <td>{{ compagnie.nom }}</td>
+            <td>{{ compagnie.description|truncatechars:50 }}</td>
+            <td>{{ compagnie.pays_rattachement }}</td>
+            <td>
+                <a href="{% url 'compagnie_update' compagnie.id %}" class="btn btn-sm btn-warning">Modifier</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
