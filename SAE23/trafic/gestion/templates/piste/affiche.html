@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Liste des pistes</h2>
+<a href="{% url 'piste_ajout' %}" class="btn btn-primary mb-3">Ajouter une piste</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Aéroport</th>
+            <th>Longueur</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for piste in piste %}
+        <tr>
+            <td>{{ piste.numero }}</td>
+            <td>{{ piste.aeroport.nom }}</td>
+            <td>{{ piste.longueur }} m</td>
+            <td>
+                <a href="{% url 'piste_update' piste.id %}" class="btn btn-sm btn-warning">Modifier</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

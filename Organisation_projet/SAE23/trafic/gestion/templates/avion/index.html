@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1>Liste des avions</h1>
-<ul>
-  {% for avion in avions %}
-    <li><a href="{% url 'affiche_avion' avion.id %}">{{ avion.nom }}</a></li>
-  {% endfor %}
-</ul>
-<a href="{% url 'ajout_avion' %}">Ajouter un avion</a>
