@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Delete piste</h2>
+<p>Confirmer la suppression de : {{ piste }}</p><form method='post'>{% csrf_token %}<button type='submit'>Supprimer</button></form>
+{% endblock %}

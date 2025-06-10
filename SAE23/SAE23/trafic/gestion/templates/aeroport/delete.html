@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Delete aeroport</h2>
+<p>Confirmer la suppression de : {{ aeroport }}</p><form method='post'>{% csrf_token %}<button type='submit'>Supprimer</button></form>
+{% endblock %}
