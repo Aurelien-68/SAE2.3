@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Détail Piste</h2>
+
+<table class="table table-bordered">
+    <tr><th>Numéro</th><td>{{ piste.numero }}</td></tr>
+    <tr><th>Aéroport</th><td>{{ piste.aeroport }}</td></tr>
+    <tr><th>Longueur</th><td>{{ piste.longueur }}</td></tr>
+</table>
+
+<a href="{% url 'piste_affiche' %}" class="btn btn-secondary">⬅ Retour</a>
+{% endblock %}

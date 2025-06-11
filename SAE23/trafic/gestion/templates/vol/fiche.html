@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Fiche des vols</h2>
+
+<form method="get">
+    <label for="date">Date :</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="direction">Direction :</label>
+    <select id="direction" name="direction">
+        <option value="depart">Départ</option>
+        <option value="arrivee">Arrivée</option>
+    </select>
+
+    <label for="aeroport">Aéroport :</label>
+    <select id="aeroport" name="aeroport" required>
+        {% for a in aeroports %}
+        <option value="{{ a.id }}">{{ a.nom }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Rechercher</button>
+</form>
+
+<hr>
+
+{% if vols %}
+<ul>
+    {% for vol in vols %}
+    <li>
+        Vol {{ vol.id }} - {{ vol.avion }} - Pilote: {{ vol.pilote }} - {{ vol.date_heure_depart }} → {{ vol.date_heure_arrivee }}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Aucun vol trouvé pour ces critères.</p>
+{% endif %}
+
+{% endblock %}
